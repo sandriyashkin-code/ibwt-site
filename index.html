@@ -551,10 +551,10 @@ footer .label { color: var(--band-dim); }
         <p>Partnerships, pilots, investment or simply a follow-up to our conversation. Leave a note and we will come back to you.</p>
       </div>
       <form class="form" id="contact-form" novalidate>
-        <div class="field"><label for="cf-name">Name</label><input id="cf-name" name="name" autocomplete="name" required></div>
-        <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="field wide"><label for="cf-company">Company and role</label><input id="cf-company" name="company" autocomplete="organization"></div>
-        <div class="field wide"><label for="cf-message">Message</label><textarea id="cf-message" name="message" required></textarea></div>
+        <div class="field"><label for="cf-name">Name</label><input id="cf-name" name="name" autocomplete="name" maxlength="100" required></div>
+        <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required></div>
+        <div class="field wide"><label for="cf-company">Company and role</label><input id="cf-company" name="company" autocomplete="organization" maxlength="150"></div>
+        <div class="field wide"><label for="cf-message">Message</label><textarea id="cf-message" name="message" maxlength="5000" required></textarea></div>
         <div class="hp" aria-hidden="true"><label for="cf-honey">Leave empty</label><input id="cf-honey" name="_honey" tabindex="-1" autocomplete="off"></div>
         <div class="form-foot">
           <button class="btn" type="submit" id="cf-send">Send message <span aria-hidden="true">→</span></button>
@@ -652,6 +652,8 @@ footer .label { color: var(--band-dim); }
   if (form) {
     var ENDPOINT = "https://formsubmit.co/ajax/" + atob("c2FuZHJpeWFzaGtpbkBvbmVjZWxsLmFp");
     var send = document.getElementById("cf-send"), status = document.getElementById("cf-status");
+    /* one line, trimmed and bounded: keeps form text out of mail headers */
+    function clip(v, n) { return v.replace(/[\r\n\t]+/g, " ").trim().slice(0, n); }
     function say(text, cls) { status.textContent = text; status.className = "status" + (cls ? " " + cls : ""); }
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -664,8 +666,9 @@ footer .label { color: var(--band-dim); }
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify({
-          name: f.name.value.trim(), email: f.email.value.trim(), company: f.company.value.trim(),
-          message: f.message.value.trim(), _subject: "ibwt site: message from " + f.name.value.trim(),
+          name: clip(f.name.value, 100), email: clip(f.email.value, 200), company: clip(f.company.value, 150),
+          message: f.message.value.trim().slice(0, 5000),
+          _subject: "ibwt site: message from " + clip(f.name.value, 60),
           _template: "table", _captcha: "false"
         })
       }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
