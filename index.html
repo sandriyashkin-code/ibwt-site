@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#14121F">
+<title>ibwt · Healthcare management company</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ibwt is a healthcare management company: a portfolio of technologies in pathology, radiology and clinics on one shared core of infrastructure, data and AI.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ibwt">
+<meta property="og:title" content="ibwt · Healthcare management company">
+<meta property="og:description" content="ibwt is a healthcare management company: a portfolio of technologies in pathology, radiology and clinics on one shared core of infrastructure, data and AI.">
+<meta property="og:url" content="https://inbloodwetrust.ai/">
+<meta property="og:image" content="https://inbloodwetrust.ai/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ibwt — More healthy years. Not more healthcare.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://inbloodwetrust.ai/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@1,8..60,400&display=swap">
+<style>
+/* Layout: full-width bands; each section is one infographic with a short head.
+   Ink hero and footer, violet closing, paper and mist in between. Square, line-built, Motto/Protege palette. */
+:root {
+  --bg: #FFFFFF;
+  --surface: #F3F2F7;
+  --line: #DCDAE5;
+  --fg: #14121F;
+  --fg-70: #4A4659;
+  --fg-50: #6E6A7E;
+  --accent: #683EF3;
+  --tint-1: #F3F2F7;
+  --tint-2: #E8E2FC;
+  --tint-3: #D3C8FA;
+  --card: #FFFFFF;
+  --band: #14121F;
+  --band-fg: #FFFFFF;
+  --band-dim: #9A96AA;
+  --band-line: #2E2B3D;
+  --band-accent: #A592F2;
+  --violet: #683EF3;
+  --on-violet: #FFFFFF;
+  --on-violet-dim: #D9D0FD;
+  --err: #B3361F;
+
+  --sans: "Geist", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Geist Mono", "SFMono-Regular", Menlo, monospace;
+  --serif: "Source Serif 4", Georgia, serif;
+
+  --wrap: 1200px;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121019; --surface: #1A1824; --line: #2E2B3D; --card: #1F1C2B;
+    --fg: #F3F2F7; --fg-70: #C4C1D0; --fg-50: #9A96AA; --accent: #A592F2;
+    --tint-1: #1F1C2B; --tint-2: #272140; --tint-3: #33295C;
+    --band: #0A0910; --band-line: #2A2738; --err: #F4614A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121019; --surface: #1A1824; --line: #2E2B3D; --card: #1F1C2B;
+  --fg: #F3F2F7; --fg-70: #C4C1D0; --fg-50: #9A96AA; --accent: #A592F2;
+  --tint-1: #1F1C2B; --tint-2: #272140; --tint-3: #33295C;
+  --band: #0A0910; --band-line: #2A2738; --err: #F4614A;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--sans); font-size: 17px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { font-weight: 500; text-wrap: balance; }
+
+.band { padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+.wrap { max-width: var(--wrap); margin: 0 auto; }
+section.band { padding-block: clamp(64px, 9vw, 120px); }
+
+.label {
+  font-family: var(--mono); font-size: 12.5px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-50);
+}
+.sq { display: inline-block; width: 10px; height: 10px; background: var(--accent); flex: none; }
+.dim { color: var(--fg-50); }
+.serif { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+.section-head { display: grid; gap: 18px; margin-bottom: clamp(40px, 5vw, 64px); max-width: 820px; }
+.section-head h2 { font-size: clamp(30px, 4.4vw, 52px); line-height: 1.08; letter-spacing: -0.03em; }
+.section-head p { font-size: clamp(17px, 1.6vw, 20px); color: var(--fg-70); max-width: 60ch; }
+
+/* ---------- Hero ---------- */
+.hero { background: var(--band); color: var(--band-fg); }
+.hero .label { color: var(--band-dim); }
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--band); color: var(--band-fg); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; position: relative; }
+.home { color: inherit; text-decoration: none; display: inline-flex; }
+.brand { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.brand-tag { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--band-dim);
+  padding-left: 16px; border-left: 1px solid var(--band-line); line-height: 1.35; }
+@media (max-width: 1100px) { .brand-tag { max-width: 21ch; } }
+.home:focus-visible, .top-nav a:focus-visible, .menu-btn:focus-visible { outline: 2px solid var(--band-accent); outline-offset: 4px; }
+.top-nav { display: flex; align-items: center; gap: 4px; }
+.top-nav a { color: #D6D3E0; text-decoration: none; font-size: 15px; letter-spacing: -0.005em; padding: 8px 12px; }
+.top-nav a:hover, .top-nav a[aria-current="true"] { color: var(--band-fg); }
+.top-nav a[aria-current="true"] { box-shadow: inset 0 -2px 0 var(--band-accent); }
+.top-nav a.cta { margin-left: 8px; background: var(--violet); color: var(--on-violet); padding: 9px 16px; }
+.top-nav a.cta:hover { background: #5730DA; }
+.menu-btn { display: none; font: inherit; font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--band-fg); background: transparent; border: 1px solid var(--band-line); border-radius: 0; padding: 9px 14px; cursor: pointer; }
+section[id], #contact { scroll-margin-top: 72px; }
+.logo { display: inline-flex; align-items: center; gap: 0.3em; font-family: var(--sans); font-weight: 600; font-size: 26px; line-height: 1; letter-spacing: -0.04em; color: var(--band-fg); }
+.logo svg { width: 1.1em; height: 1.1em; display: block; flex: none; }
+.word { display: inline-block; padding-right: 0.04em; }
+.word .i { position: relative; display: inline-block; }
+/* the i keeps its stem; its dot is a brand pixel, sized to the Geist 600 stem (0.13em) and set where Geist draws the dot */
+.word .dot { position: absolute; left: 50%; top: 0.136em; width: 0.13em; height: 0.13em; transform: translateX(-50%); background: var(--band-accent); }
+.hero-grid {
+  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 96px); align-items: center;
+  padding-block: clamp(48px, 7vw, 96px);
+}
+.eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+.eyebrow .sq { background: var(--band-accent); }
+.hero h1 { font-size: clamp(44px, 7.2vw, 104px); line-height: 0.98; letter-spacing: -0.04em; }
+.hero h1 .dim { color: var(--band-dim); display: block; }
+.hero .lead { margin-top: 32px; font-size: clamp(18px, 1.8vw, 22px); line-height: 1.5; color: #D6D3E0; max-width: 44ch; }
+.hero .lead b { color: #FFFFFF; font-weight: 500; }
+.pixels { width: 100%; max-width: 440px; aspect-ratio: 1; justify-self: end; }
+.pixels svg { width: 100%; height: 100%; display: block; }
+.pixels rect { transition: opacity 1.2s ease; }
+.tags { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 36px; }
+.tags span { display: inline-flex; align-items: center; gap: 10px; }
+.tags .sq { background: var(--band-accent); }
+/* Modality ticker: the three verticals and their modalities, drifting left in one slow loop */
+.ticker {
+  border-top: 1px solid var(--band-line); overflow: hidden; padding-block: 26px 30px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.ticker-track { display: flex; width: max-content; animation: drift 48s linear infinite; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-set { display: flex; align-items: center; gap: 22px; padding-right: 22px; flex: none; }
+.ticker .v-name { font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--band-accent); padding-left: 18px; }
+.ticker .m { font-size: clamp(22px, 2.6vw, 34px); letter-spacing: -0.03em; color: var(--band-fg); white-space: nowrap; }
+.ticker .px { width: 9px; height: 9px; background: var(--violet); flex: none; }
+.ticker .px.alt { background: var(--band-accent); }
+@keyframes drift { to { transform: translateX(-50%); } }
+
+/* ---------- Group structure ---------- */
+.org { display: grid; justify-items: center; }
+/* the group's own mark sits on the page ground: ink wordmark, brand-violet dot, ink nucleus */
+.org-top { display: grid; justify-items: center; padding-block: 8px; }
+.org-top strong { font-size: clamp(40px, 4.6vw, 56px); color: var(--fg); }
+.org-top .logo .dot { background: var(--accent); }
+.org-top .logo svg rect[fill="#FFFFFF"] { fill: var(--fg); }
+
+.fan { position: relative; width: 100%; height: 64px; }
+.fan i { position: absolute; background: var(--line); display: block; }
+.fan .v { width: 1px; }
+.fan .h { height: 1px; top: 50%; left: 16.667%; right: 16.667%; }
+.fan .c1 { left: 16.667%; } .fan .c2 { left: 50%; } .fan .c3 { left: 83.333%; }
+.fan .top { top: 0; height: 50%; } .fan .bot { top: 50%; height: 50%; }
+.fan .v::after {
+  content: ""; position: absolute; left: -3px; width: 7px; height: 7px; background: var(--accent);
+  animation: flow 2.2s linear infinite; animation-delay: var(--d, 0s);
+}
+@keyframes flow { 0% { top: -4px; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { top: calc(100% - 3px); opacity: 0; } }
+
+.verts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
+.vert { padding: 0 8px; }
+.vbox { background: var(--card); border: 1px solid var(--line); padding: 22px 20px; display: grid; gap: 14px; height: 100%; align-content: start; }
+.vbox h3 { font-size: clamp(20px, 2.6vw, 32px); letter-spacing: -0.03em; line-height: 1.05; }
+.portfolio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; max-width: 168px; }
+.portfolio i { aspect-ratio: 1; background: var(--accent); display: block; }
+.portfolio i:nth-child(2) { background: var(--tint-3); }
+.portfolio i:nth-child(3) { background: var(--tint-2); }
+.vbox .mod { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-50); }
+
+.core { width: 100%; display: grid; border: 1px solid var(--line); }
+.core-row { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 8px 32px; padding: 20px 24px; align-items: baseline; }
+.core-row:nth-child(1) { background: var(--tint-3); }
+.core-row:nth-child(2) { background: var(--tint-2); }
+.core-row:nth-child(3) { background: var(--tint-1); }
+.core-row h3 { font-size: clamp(19px, 2vw, 24px); letter-spacing: -0.02em; display: flex; gap: 14px; align-items: baseline; }
+.core-row h3 .label { color: var(--accent); }
+.core-row p { color: var(--fg-70); }
+.core-cap { width: 100%; display: flex; justify-content: space-between; gap: 16px; padding-bottom: 10px; }
+.fan.single { height: 56px; }
+.person {
+  background: var(--violet); color: var(--on-violet); width: min(440px, 100%);
+  padding: 20px 24px; text-align: center; display: grid; gap: 4px;
+}
+.person strong { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; }
+.person span { color: var(--on-violet-dim); font-size: 14.5px; }
+
+/* ---------- Hub: what the management company provides ---------- */
+.hub-sec { background: var(--surface); }
+.hub-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+.hub-grid .section-head { margin-bottom: 0; }
+.hub {
+  position: relative; display: grid; gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(3, auto);
+  grid-template-areas: "c1 t c2" "l m r" "c3 b c4";
+}
+.hub::before, .hub::after { content: ""; position: absolute; background: var(--accent); opacity: 0.45; }
+.hub::before { left: 16%; right: 16%; top: 50%; height: 1px; }
+.hub::after { top: 14%; bottom: 14%; left: 50%; width: 1px; }
+.node { position: relative; z-index: 1; background: var(--card); border: 1px solid var(--line); padding: 18px; display: grid; gap: 8px; align-content: start; }
+.node h3 { font-size: 17px; letter-spacing: -0.01em; line-height: 1.25; }
+.node p { font-size: 14.5px; color: var(--fg-70); line-height: 1.45; }
+.node.t { grid-area: t; } .node.l { grid-area: l; } .node.r { grid-area: r; } .node.b { grid-area: b; }
+.node.m {
+  grid-area: m; background: var(--band); color: var(--band-fg); border-color: var(--band);
+  align-content: center; justify-items: center; text-align: center; aspect-ratio: 1;
+}
+.node.m strong { font-size: clamp(28px, 3vw, 38px); }
+.node.m .label { color: var(--band-accent); }
+.patch { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; align-self: center; justify-self: center; width: 56%; }
+.patch i { aspect-ratio: 1; display: block; }
+.patch.c1 { grid-area: c1; } .patch.c2 { grid-area: c2; } .patch.c3 { grid-area: c3; } .patch.c4 { grid-area: c4; }
+
+/* ---------- Trajectory: pixels grow from a sample to a person ---------- */
+.grow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.g { padding: 28px 20px 0 0; display: grid; gap: 14px; align-content: start; }
+/* keep pixels, labels and questions on shared rows even when a label wraps to two lines */
+.g .label { min-height: 2.6em; }
+@supports (grid-template-rows: subgrid) {
+  .grow { grid-template-rows: repeat(3, auto); }
+  .g { grid-row: span 3; grid-template-rows: subgrid; align-content: stretch; }
+  .g .label { min-height: 0; }
+}
+.g + .g { padding-left: 20px; border-left: 1px solid var(--line); }
+.g-box { height: 104px; display: flex; align-items: flex-end; }
+.g-px { display: grid; gap: 3px; }
+.g-px i { width: 15px; height: 15px; display: block; background: var(--accent); }
+.g .label { color: var(--fg-50); }
+.g h3 { font-size: clamp(18px, 1.7vw, 22px); line-height: 1.25; letter-spacing: -0.015em; }
+.outcome { margin-top: clamp(40px, 5vw, 56px); display: flex; align-items: baseline; gap: 20px; }
+.outcome p { font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.02em; line-height: 1.1; }
+.outcome .arrow { color: var(--accent); font-size: clamp(28px, 3.6vw, 44px); line-height: 1.1; }
+
+/* ---------- Orbit: who the portfolio serves ---------- */
+.orbit-sec { background: var(--surface); }
+.orbit-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+.orbit-grid .section-head { margin-bottom: 0; }
+.orbit { position: relative; width: 100%; max-width: 560px; aspect-ratio: 1; justify-self: center; }
+.orbit svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.orbit .ring { fill: none; stroke: var(--line); stroke-width: 0.3; }
+.orbit .spoke { stroke: var(--line); stroke-width: 0.35; }
+.orbit .flow { stroke: var(--accent); stroke-width: 0.6; stroke-dasharray: 1.2 3.2; animation: dash 1.6s linear infinite; }
+@keyframes dash { to { stroke-dashoffset: -4.4; } }
+.o-center {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 28%; aspect-ratio: 1; background: var(--violet); color: var(--on-violet);
+  display: grid; align-content: center; justify-items: center; text-align: center; gap: 2px; padding: 8px;
+}
+.o-center strong { font-size: clamp(15px, 2vw, 22px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+.o-center span { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-violet-dim); }
+.o-node {
+  position: absolute; transform: translate(-50%, -50%); width: 30%;
+  background: var(--card); border: 1px solid var(--line); padding: 12px 14px; display: grid; gap: 4px;
+}
+.o-node h3 { font-size: clamp(13px, 1.5vw, 16px); line-height: 1.2; letter-spacing: -0.01em; display: flex; gap: 8px; align-items: baseline; }
+.o-node h3 .sq { width: 8px; height: 8px; }
+.o-node p { font-size: 13px; line-height: 1.35; color: var(--fg-70); }
+
+/* ---------- Closing ---------- */
+.closing { background: var(--violet); color: var(--on-violet); }
+.closing .label { color: var(--on-violet-dim); }
+.closing h2 { font-size: clamp(36px, 5.6vw, 80px); line-height: 1.02; letter-spacing: -0.035em; max-width: 16ch; margin-top: 28px; }
+.closing h2 .serif { color: var(--on-violet-dim); }
+.closing-foot { margin-top: clamp(40px, 5vw, 72px); display: flex; flex-wrap: wrap; gap: 12px 40px; font-size: clamp(18px, 1.8vw, 22px); }
+
+/* ---------- Contact form ---------- */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.contact-grid .section-head { margin-bottom: 0; }
+.form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; }
+.field { display: grid; gap: 8px; min-width: 0; }
+.field.wide { grid-column: 1 / -1; }
+.field label { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-50); }
+.field input, .field textarea {
+  font: inherit; font-size: 17px; color: var(--fg); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 0; padding: 13px 14px; width: 100%;
+}
+.field textarea { min-height: 140px; resize: vertical; }
+.field input:focus, .field textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
+.form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
+.btn {
+  font: inherit; font-size: 17px; font-weight: 500; letter-spacing: -0.01em; cursor: pointer;
+  background: var(--violet); color: var(--on-violet); border: 0; border-radius: 0; padding: 15px 26px;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.btn:hover { background: #5730DA; }
+.btn:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+.btn[disabled] { opacity: 0.6; cursor: progress; }
+.status { color: var(--fg-70); font-size: 15.5px; }
+.status.ok { color: var(--fg); }
+.status.err { color: var(--err); }
+@media (max-width: 760px) {
+  .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .form { grid-template-columns: minmax(0, 1fr); }
+}
+
+footer { background: var(--band); color: var(--band-dim); padding-block: clamp(48px, 6vw, 72px) 28px; }
+footer .wrap { display: grid; gap: clamp(32px, 4vw, 48px); }
+.foot-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px 32px; }
+footer .logo { font-size: 30px; }
+.foot-tag { color: var(--band-fg); font-size: clamp(18px, 1.8vw, 22px); letter-spacing: -0.02em; }
+.foot-tag span { color: var(--band-dim); }
+.foot-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; border-top: 1px solid var(--band-line); padding-top: 22px; }
+footer .label { color: var(--band-dim); }
+.foot-bottom a { color: var(--band-dim); text-decoration: none; }
+.foot-bottom a:hover { color: var(--band-fg); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+@media (max-width: 760px) {
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+  .fan .v::after { animation: none; display: none; }
+  .orbit .flow { animation: none; }
+  .pixels rect { transition: none; }
+}
+
+/* ---------- Narrow screens ---------- */
+@media (max-width: 960px) {
+  .hub-grid, .orbit-grid { grid-template-columns: minmax(0, 1fr); }
+  .grow { grid-template-columns: minmax(0, 1fr); border-top: 0; }
+  .g, .g + .g { padding: 20px 0; border-left: 0; border-top: 1px solid var(--line); grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 6px 16px; }
+  .g .g-box { grid-row: span 2; height: auto; }
+  .grow { grid-template-rows: none; }
+  .g { grid-row: auto; grid-template-rows: none; align-content: start; }
+  .g .label { min-height: 0; }
+  .g-px i { width: 11px; height: 11px; }
+  .g-px { gap: 2px; }
+}
+@media (max-width: 760px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .pixels { justify-self: start; max-width: 220px; order: -1; }
+  .menu-btn { display: inline-block; flex: none; }
+  .brand { gap: 12px; }
+  .brand-tag { font-size: 10px; padding-left: 12px; }
+  .top-nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--band); border-top: 1px solid var(--band-line);
+    flex-direction: column; align-items: stretch; gap: 0; padding-block: 8px 16px; }
+  .top-nav.open { display: flex; }
+  .top-nav a { font-size: 18px; padding: 14px 0; border-bottom: 1px solid var(--band-line); }
+  .top-nav a.cta { margin: 14px 0 0; text-align: center; border-bottom: 0; }
+  .vert { padding: 0 4px; }
+  .vbox { padding: 14px 10px; gap: 10px; }
+  .vbox .mod { display: none; }
+  .vbox h3 { font-size: 17px; }
+  .core-row { grid-template-columns: minmax(0, 1fr); padding: 16px; }
+  .hub { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "m m" "t r" "l b"; }
+  .hub::before, .hub::after, .patch { display: none; }
+  .node.m { aspect-ratio: auto; padding: 20px; }
+  .orbit { aspect-ratio: auto; display: grid; gap: 10px; }
+  .orbit svg { display: none; }
+  .o-center, .o-node { position: static; transform: none; width: 100%; }
+  .o-center { aspect-ratio: auto; padding: 18px; }
+  .o-node { padding: 14px 16px; }
+  .o-node h3 { font-size: 17px; }
+  .o-node p { font-size: 14.5px; }
+}
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+
+<div class="topbar band" id="top">
+  <div class="wrap bar">
+    <div class="brand">
+      <a class="home" href="#top" aria-label="ibwt, back to top"><span class="logo" aria-hidden="true"><svg viewBox="0 0 70 70" aria-hidden="true"><rect x="10.75" y="0.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="20.75" y="0.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="30.75" y="0.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="40.75" y="0.75" width="8.5" height="8.5" fill="#4D2EB5"/><rect x="50.75" y="0.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="0.75" y="10.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="10.75" y="10.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="50.75" y="10.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="60.75" y="10.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="0.75" y="20.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="40.75" y="20.75" width="8.5" height="8.5" fill="#FFFFFF"/><rect x="60.75" y="20.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="0.75" y="30.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="60.75" y="30.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="0.75" y="40.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="60.75" y="40.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="0.75" y="50.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="10.75" y="50.75" width="8.5" height="8.5" fill="#4D2EB5"/><rect x="50.75" y="50.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="60.75" y="50.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="10.75" y="60.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="20.75" y="60.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="30.75" y="60.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="40.75" y="60.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="50.75" y="60.75" width="8.5" height="8.5" fill="#4D2EB5"/></svg><span class="word" aria-hidden="true"><span class="i">ı<i class="dot"></i></span>bwt</span></span></a>
+      <span class="brand-tag">Healthcare management company</span>
+    </div>
+    <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="top-nav">Menu</button>
+    <nav class="top-nav" id="top-nav" aria-label="Sections">
+        <a href="#group">Structure</a>
+        <a href="#what-we-do">What we do</a>
+        <a href="#direction">Direction</a>
+        <a href="#customers">Customers</a>
+        <a class="cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero band">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>More healthy years. <span class="dim">Not more healthcare.</span></h1>
+        <p class="lead"><b>ibwt builds, acquires and runs healthcare businesses</b> in pathology, radiology and clinical care. Our portfolio companies share one core infrastructure, data and AI Intelligence layer.</p>
+        <div class="tags label"><span><i class="sq"></i>Human-centric</span><span><i class="sq"></i>AI-native</span><span><i class="sq"></i>Multimodal</span></div>
+      </div>
+      <div class="pixels" id="cell" data-seed="7"></div>
+    </div>
+
+    <div class="ticker" aria-label="Modalities across our verticals: pathology (tissue, IHC, molecular), radiology (CT, MRI, X-ray), clinics (lab, records, outcomes)">
+      <div class="ticker-track" aria-hidden="true">
+        <div class="ticker-set">
+          <span class="v-name">Pathology</span><span class="m">Tissue</span><i class="px"></i><span class="m">IHC</span><i class="px alt"></i><span class="m">Molecular</span>
+          <span class="v-name">Radiology</span><span class="m">CT</span><i class="px"></i><span class="m">MRI</span><i class="px alt"></i><span class="m">X-ray</span>
+          <span class="v-name">Clinics</span><span class="m">Lab results</span><i class="px"></i><span class="m">Records</span><i class="px alt"></i><span class="m">Outcomes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="band" id="group" aria-labelledby="h-group">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">How the group is built</span>
+        <h2 id="h-group">A portfolio of technologies <span class="dim">on one shared core.</span></h2>
+        <p>The diagnostics market is shifting from point solutions to unified digital ecosystems. Organizations now look for platforms where every stage of the diagnostic process runs on a common engine and every dataset is connected, so that systems communicate seamlessly and insights compound across the workflow.</p>
+      </div>
+
+      <div class="org" role="img" aria-label="ibwt oversees three verticals: pathology, radiology and clinics. They run on a shared core of intelligence layer, data and infrastructure, centred on the patient.">
+        <div class="org-top">
+          <strong class="logo" role="img" aria-label="ibwt"><svg viewBox="0 0 70 70" aria-hidden="true"><rect x="10.75" y="0.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="20.75" y="0.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="30.75" y="0.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="40.75" y="0.75" width="8.5" height="8.5" fill="#4D2EB5"/><rect x="50.75" y="0.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="0.75" y="10.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="10.75" y="10.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="50.75" y="10.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="60.75" y="10.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="0.75" y="20.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="40.75" y="20.75" width="8.5" height="8.5" fill="#FFFFFF"/><rect x="60.75" y="20.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="0.75" y="30.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="60.75" y="30.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="0.75" y="40.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="60.75" y="40.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="0.75" y="50.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="10.75" y="50.75" width="8.5" height="8.5" fill="#4D2EB5"/><rect x="50.75" y="50.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="60.75" y="50.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="10.75" y="60.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="20.75" y="60.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="30.75" y="60.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="40.75" y="60.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="50.75" y="60.75" width="8.5" height="8.5" fill="#4D2EB5"/></svg><span class="word" aria-hidden="true"><span class="i">ı<i class="dot"></i></span>bwt</span></strong>
+        </div>
+
+        <div class="fan" aria-hidden="true">
+          <i class="v c2 top" style="--d:0s"></i><i class="h"></i>
+          <i class="v c1 bot" style="--d:.5s"></i><i class="v c2 bot" style="--d:.9s"></i><i class="v c3 bot" style="--d:1.3s"></i>
+        </div>
+
+        <div class="verts">
+          <div class="vert"><div class="vbox">
+            <span class="label">Vertical</span>
+            <h3>Pathology</h3>
+            <span class="mod">Tissue · IHC · molecular</span>
+          </div></div>
+          <div class="vert"><div class="vbox">
+            <span class="label">Vertical</span>
+            <h3>Radiology</h3>
+            <span class="mod">CT · MRI · X-ray</span>
+          </div></div>
+          <div class="vert"><div class="vbox">
+            <span class="label">Vertical</span>
+            <h3>Clinics</h3>
+            <span class="mod">Lab · records · outcomes</span>
+          </div></div>
+        </div>
+
+        <div class="fan" aria-hidden="true">
+          <i class="v c1 top" style="--d:.2s"></i><i class="v c2 top" style="--d:.7s"></i><i class="v c3 top" style="--d:1.1s"></i>
+          <i class="h"></i><i class="v c2 bot" style="--d:1.5s"></i>
+        </div>
+
+        <div class="core-cap"><span class="label">Shared core</span></div>
+        <div class="core">
+          <div class="core-row"><h3><span class="label">03</span>Intelligence Layer</h3><p>Clinical AI trained on curated global data, turning complexity into answers for every stakeholder in healthcare.</p></div>
+          <div class="core-row"><h3><span class="label">02</span>Data</h3><p>Multimodal data unified around each individual, the foundation for high-precision clinical AI.</p></div>
+          <div class="core-row"><h3><span class="label">01</span>Infrastructure</h3><p>Hardware, testing and global specialist networks, working together as one diagnostic infrastructure.</p></div>
+        </div>
+
+        <div class="fan single" aria-hidden="true"><i class="v c2 top" style="--d:.4s; height:100%"></i></div>
+
+        <div class="person">
+          <strong>The patient</strong>
+          <span>One clear picture of health, and the <span style="white-space: nowrap">best-informed</span> decisions at every step.</span>
+        </div>
+      </div>
+          </div>
+  </section>
+
+  <section class="band hub-sec" id="what-we-do" aria-labelledby="h-hub">
+    <div class="wrap hub-grid">
+      <div class="section-head">
+        <span class="label">What the management company does</span>
+        <h2 id="h-hub">One group, <span class="dim">shared strengths.</span></h2>
+        <p>Our companies stay focused on their customers. ibwt provides what each of them would otherwise have to build alone.</p>
+      </div>
+      <div class="hub">
+        <div class="patch c1" data-seed="3" aria-hidden="true"></div>
+        <div class="node t"><h3>Capital and M&amp;A</h3><p>We fund, build and acquire businesses that fit the core.</p></div>
+        <div class="patch c2" data-seed="11" aria-hidden="true"></div>
+        <div class="node l"><h3>Shared data and AI</h3><p>Every company plugs into one data platform and one set of models.</p></div>
+        <div class="node m"><span class="label">Group</span><strong class="logo" role="img" aria-label="ibwt"><span class="word" aria-hidden="true"><span class="i">ı<i class="dot"></i></span>bwt</span></strong></div>
+        <div class="node r"><h3>Regulatory and quality</h3><p>Certification, data rights and security, handled once for the group.</p></div>
+        <div class="patch c3" data-seed="19" aria-hidden="true"></div>
+        <div class="node b"><h3>Experts and operations</h3><p>A specialist network, partnerships and back office shared across companies.</p></div>
+        <div class="patch c4" data-seed="23" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="direction" aria-labelledby="h-trajectory">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Where we are going</span>
+        <h2 id="h-trajectory">From a single sample <span class="dim">to a person over time.</span></h2>
+        <p>Each step adds more data about the same person and answers a bigger question.</p>
+      </div>
+      <div class="grow">
+        <div class="g"><div class="g-box"><div class="g-px" data-n="1"></div></div><span class="label">01 · Pathology</span><h3>What is in this sample?</h3></div>
+        <div class="g"><div class="g-box"><div class="g-px" data-n="2"></div></div><span class="label">02 · Integrated diagnostics</span><h3>What is happening with this disease?</h3></div>
+        <div class="g"><div class="g-box"><div class="g-px" data-n="3"></div></div><span class="label">03 · Multimodal intelligence</span><h3>What is happening with this person?</h3></div>
+        <div class="g"><div class="g-box"><div class="g-px" data-n="4"></div></div><span class="label">04 · Predictive health</span><h3>What is likely to happen next?</h3></div>
+        <div class="g"><div class="g-box"><div class="g-px" data-n="5"></div></div><span class="label">05 · Personalized health</span><h3>What should be done now?</h3></div>
+      </div>
+      <div class="outcome"><span class="arrow" aria-hidden="true">→</span><p>More healthy years of life.</p></div>
+    </div>
+  </section>
+
+  <section class="band orbit-sec" id="customers" aria-labelledby="h-orbit">
+    <div class="wrap orbit-grid">
+      <div class="section-head">
+        <span class="label">Who our companies serve</span>
+        <h2 id="h-orbit">Different customers, <span class="dim">one person in the middle.</span></h2>
+        <p>Every customer of the group works with the same person from a different side. The shared core lets each of them see the whole picture.</p>
+      </div>
+      <div class="orbit" id="orbit">
+        <svg viewBox="0 0 100 100" aria-hidden="true" id="orbit-svg"></svg>
+        <div class="o-center"><strong>The person</strong><span>at the center</span></div>
+        <div class="o-node" data-a="-90"><h3><i class="sq"></i>Clinics and labs</h3><p>Capacity and quality</p></div>
+        <div class="o-node" data-a="-18"><h3><i class="sq"></i>Physicians</h3><p>The whole patient in one view</p></div>
+        <div class="o-node" data-a="54"><h3><i class="sq"></i>Patients</h3><p>Results they understand</p></div>
+        <div class="o-node" data-a="126"><h3><i class="sq"></i>Pharma and biotech</h3><p>Evidence from real-world data</p></div>
+        <div class="o-node" data-a="198"><h3><i class="sq"></i>Health systems</h3><p>Access and population insight</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band closing" aria-labelledby="h-closing">
+    <div class="wrap">
+      <span class="label">North star</span>
+      <h2 id="h-closing">Medicine that understands <span class="serif">the person over time,</span> not only the disease in a single moment.</h2>
+      <div class="closing-foot"><span>More healthy years.</span><span>Not more healthcare.</span></div>
+    </div>
+  </section>
+  <section class="band" id="contact" aria-labelledby="h-contact">
+    <div class="wrap contact-grid">
+      <div class="section-head">
+        <span class="label">Get in touch</span>
+        <h2 id="h-contact">Let's talk. <span class="dim">We will reply shortly.</span></h2>
+        <p>Partnerships, pilots, investment or simply a follow-up to our conversation. Leave a note and we will come back to you.</p>
+      </div>
+      <form class="form" id="contact-form" novalidate>
+        <div class="field"><label for="cf-name">Name</label><input id="cf-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field wide"><label for="cf-company">Company and role</label><input id="cf-company" name="company" autocomplete="organization"></div>
+        <div class="field wide"><label for="cf-message">Message</label><textarea id="cf-message" name="message" required></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="cf-honey">Leave empty</label><input id="cf-honey" name="_honey" tabindex="-1" autocomplete="off"></div>
+        <div class="form-foot">
+          <button class="btn" type="submit" id="cf-send">Send message <span aria-hidden="true">→</span></button>
+          <p class="status" id="cf-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="band">
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="logo" role="img" aria-label="ibwt"><svg viewBox="0 0 70 70" aria-hidden="true"><rect x="10.75" y="0.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="20.75" y="0.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="30.75" y="0.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="40.75" y="0.75" width="8.5" height="8.5" fill="#4D2EB5"/><rect x="50.75" y="0.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="0.75" y="10.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="10.75" y="10.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="50.75" y="10.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="60.75" y="10.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="0.75" y="20.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="40.75" y="20.75" width="8.5" height="8.5" fill="#FFFFFF"/><rect x="60.75" y="20.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="0.75" y="30.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="60.75" y="30.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="0.75" y="40.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="60.75" y="40.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="0.75" y="50.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="10.75" y="50.75" width="8.5" height="8.5" fill="#4D2EB5"/><rect x="50.75" y="50.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="60.75" y="50.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="10.75" y="60.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="20.75" y="60.75" width="8.5" height="8.5" fill="#683EF3"/><rect x="30.75" y="60.75" width="8.5" height="8.5" fill="#A592F2"/><rect x="40.75" y="60.75" width="8.5" height="8.5" fill="#8B6CF0"/><rect x="50.75" y="60.75" width="8.5" height="8.5" fill="#4D2EB5"/></svg><span class="word" aria-hidden="true"><span class="i">ı<i class="dot"></i></span>bwt</span></span>
+      <p class="foot-tag">More healthy years. <span>Not more healthcare.</span></p>
+    </div>
+    <div class="foot-bottom">
+      <span class="label">© 2026 · Healthcare management company</span>
+      <a class="label" href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var tr = document.querySelector(".ticker-track");
+  if (tr) tr.appendChild(tr.firstElementChild.cloneNode(true));
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var tones = ["#683EF3", "#4D2EB5", "#8B6CF0", "#A592F2", "#683EF3"];
+  function rng(seed) {
+    var a = seed >>> 0;
+    return function () {
+      a = (a + 0x6D2B79F5) >>> 0;
+      var t = a;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  /* Hero: the pixel cell, with a slow twinkle of its blocks */
+  var el = document.getElementById("cell");
+  if (el) {
+    var cols = 24, rows = 24, size = 40, gap = 4, r = rng(+el.dataset.seed || 7);
+    var cx = cols / 2, cy = rows / 2, R = Math.min(cols, rows) * 0.42, out = [];
+    for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) {
+      var px = x + 0.5, py = y + 0.5;
+      var d = Math.hypot((px - cx) / (R * 0.92), (py - cy) / R);
+      var n = Math.hypot((px - (cx + R * 0.14)) / (R * 0.2), (py - (cy - R * 0.2)) / (R * 0.2));
+      var on = (d > 0.58 && d < 1.0) || n < 1;
+      if (!on && r() < 0.035) on = true; else if (on && r() < 0.06) on = false;
+      if (on) {
+        var c = n < 1 ? "#FFFFFF" : tones[Math.floor(r() * tones.length)];
+        out.push('<rect x="' + (x * size + gap / 2) + '" y="' + (y * size + gap / 2) + '" width="' + (size - gap) + '" height="' + (size - gap) + '" fill="' + c + '"/>');
+      }
+    }
+    el.innerHTML = '<svg viewBox="0 0 ' + cols * size + ' ' + rows * size + '" aria-hidden="true">' + out.join("") + '</svg>';
+    if (!reduce) {
+      var rects = el.querySelectorAll("rect");
+      setInterval(function () {
+        for (var k = 0; k < 3; k++) {
+          var rc = rects[Math.floor(Math.random() * rects.length)];
+          if (rc.getAttribute("fill") === "#FFFFFF") continue;
+          rc.style.opacity = "0.25";
+          (function (node) { setTimeout(function () { node.style.opacity = ""; }, 1400); })(rc);
+        }
+      }, 500);
+    }
+  }
+
+  /* Hub corners: small seeded pixel patches */
+  document.querySelectorAll(".patch").forEach(function (p) {
+    var rr = rng(+p.dataset.seed || 1), html = "";
+    var pal = ["var(--accent)", "var(--tint-3)", "var(--tint-2)"];
+    for (var i = 0; i < 16; i++) {
+      var v = rr();
+      html += '<i style="background:' + (v < 0.22 ? pal[0] : v < 0.5 ? pal[1] : v < 0.7 ? pal[2] : "transparent") + '"></i>';
+    }
+    p.innerHTML = html;
+  });
+
+  /* Trajectory: n×n blocks, growing from one sample to the whole person */
+  document.querySelectorAll(".g-px").forEach(function (g) {
+    var n = +g.dataset.n, rr = rng(n * 13), html = "";
+    var pal = ["#683EF3", "#8B6CF0", "#A592F2", "#4D2EB5"];
+    g.style.gridTemplateColumns = "repeat(" + n + ", auto)";
+    for (var i = 0; i < n * n; i++) html += '<i style="background:' + pal[Math.floor(rr() * pal.length)] + '"></i>';
+    g.innerHTML = html;
+  });
+
+  /* Contact form: posts straight from the browser to FormSubmit, which emails the message.
+     FormSubmit sits behind Cloudflare and refuses server-to-server calls, so there is no relay.
+     The inbox address is base64-encoded so plain-text scrapers do not pick it up. */
+  var form = document.getElementById("contact-form");
+  if (form) {
+    var ENDPOINT = "https://formsubmit.co/ajax/" + atob("c2FuZHJpeWFzaGtpbkBvbmVjZWxsLmFp");
+    var send = document.getElementById("cf-send"), status = document.getElementById("cf-status");
+    function say(text, cls) { status.textContent = text; status.className = "status" + (cls ? " " + cls : ""); }
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var f = form.elements;
+      if (f._honey.value) return;
+      if (!f.name.value.trim() || !f.message.value.trim()) { say("Please add your name and a message.", "err"); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.value.trim())) { say("Please check your email address.", "err"); f.email.focus(); return; }
+      send.disabled = true; say("Sending…");
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          name: f.name.value.trim(), email: f.email.value.trim(), company: f.company.value.trim(),
+          message: f.message.value.trim(), _subject: "ibwt site: message from " + f.name.value.trim(),
+          _template: "table", _captcha: "false"
+        })
+      }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (res.ok && String(res.j.success) === "true") { form.reset(); say("Thank you. Your message has been sent.", "ok"); return; }
+          var m = (res.j && res.j.message) || "";
+          if (/activat/i.test(m)) say("The form is waiting for activation by the site owner. Please try again later.", "err");
+          else say("The message could not be sent" + (m ? ": " + m : "."), "err");
+          if (window.console) console.warn("Contact:", res.j);
+        })
+        .catch(function (err) { say("The message could not be sent. Please check your connection and try again.", "err"); if (window.console) console.warn(err); })
+        .then(function () { send.disabled = false; });
+    });
+  }
+
+  /* Top bar: mobile menu toggle and the current section highlighted while scrolling */
+  var mbtn = document.getElementById("menu-btn"), tnav = document.getElementById("top-nav");
+  if (mbtn && tnav) {
+    mbtn.addEventListener("click", function () {
+      var open = tnav.classList.toggle("open");
+      mbtn.setAttribute("aria-expanded", open ? "true" : "false");
+      mbtn.textContent = open ? "Close" : "Menu";
+    });
+    tnav.addEventListener("click", function (e) {
+      if (e.target.closest("a") && tnav.classList.contains("open")) mbtn.click();
+    });
+    if ("IntersectionObserver" in window) {
+      var links = {}; tnav.querySelectorAll('a[href^="#"]').forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          var a = links[en.target.id]; if (!a) return;
+          if (en.isIntersecting) { tnav.querySelectorAll("a").forEach(function (x) { x.removeAttribute("aria-current"); }); a.setAttribute("aria-current", "true"); }
+        });
+      }, { rootMargin: "-45% 0px -50% 0px" });
+      Object.keys(links).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+    }
+  }
+
+  /* Orbit: place the five customers on a ring and draw flowing spokes to the person */
+  var orbit = document.getElementById("orbit"), svg = document.getElementById("orbit-svg");
+  if (orbit && svg) {
+    var ring = 38, s = '<circle class="ring" cx="50" cy="50" r="' + ring + '"/>';
+    orbit.querySelectorAll(".o-node").forEach(function (nd) {
+      var a = (+nd.dataset.a) * Math.PI / 180;
+      var x = 50 + ring * Math.cos(a), y = 50 + ring * Math.sin(a);
+      nd.style.left = x + "%"; nd.style.top = y + "%";
+      s += '<line class="spoke" x1="' + x + '" y1="' + y + '" x2="50" y2="50"/>';
+      s += '<line class="flow" x1="' + x + '" y1="' + y + '" x2="50" y2="50"/>';
+    });
+    svg.innerHTML = s;
+  }
+})();
+</script>
+
+</body>
+</html>
